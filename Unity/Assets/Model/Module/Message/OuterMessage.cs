@@ -8,6 +8,113 @@ using pbc = global::Google.Protobuf.Collections;
 using scg = global::System.Collections.Generic;
 namespace ETModel {
 
+  #region Enums
+  /// <summary>
+  ///花色
+  /// </summary>
+  public enum Suits {
+    /// <summary>
+    ///梅花
+    /// </summary>
+    Club = 0,
+    /// <summary>
+    ///方块
+    /// </summary>
+    Diamond = 1,
+    /// <summary>
+    ///红心
+    /// </summary>
+    Heart = 2,
+    /// <summary>
+    ///黑桃
+    /// </summary>
+    Spade = 3,
+    None = 4,
+  }
+
+  /// <summary>
+  ///权重
+  /// </summary>
+  public enum Weight {
+    /// <summary>
+    ///3
+    /// </summary>
+    Three = 0,
+    /// <summary>
+    ///4
+    /// </summary>
+    Four = 1,
+    /// <summary>
+    ///5
+    /// </summary>
+    Five = 2,
+    /// <summary>
+    ///6
+    /// </summary>
+    Six = 3,
+    /// <summary>
+    ///7
+    /// </summary>
+    Seven = 4,
+    /// <summary>
+    ///8
+    /// </summary>
+    Eight = 5,
+    /// <summary>
+    ///9
+    /// </summary>
+    Nine = 6,
+    /// <summary>
+    ///10
+    /// </summary>
+    Ten = 7,
+    /// <summary>
+    ///J
+    /// </summary>
+    Jack = 8,
+    /// <summary>
+    ///Q
+    /// </summary>
+    Queen = 9,
+    /// <summary>
+    ///K
+    /// </summary>
+    King = 10,
+    /// <summary>
+    ///A
+    /// </summary>
+    One = 11,
+    /// <summary>
+    ///2
+    /// </summary>
+    Two = 12,
+    /// <summary>
+    ///小王
+    /// </summary>
+    Sjoker = 13,
+    /// <summary>
+    ///大王
+    /// </summary>
+    Ljoker = 14,
+  }
+
+  /// <summary>
+  ///身份
+  /// </summary>
+  public enum Identity {
+    None = 0,
+    /// <summary>
+    ///平民
+    /// </summary>
+    Farmer = 1,
+    /// <summary>
+    ///地主
+    /// </summary>
+    Landlord = 2,
+  }
+
+  #endregion
+
   #region Messages
   public partial class C2M_TestRequest : pb::IMessage {
     private static readonly pb::MessageParser<C2M_TestRequest> _parser = new pb::MessageParser<C2M_TestRequest>(() => (C2M_TestRequest)MessagePool.Instance.Fetch(typeof(C2M_TestRequest)));
@@ -1362,6 +1469,69 @@ namespace ETModel {
           }
           case 738: {
             Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public partial class Card : pb::IMessage {
+    private static readonly pb::MessageParser<Card> _parser = new pb::MessageParser<Card>(() => (Card)MessagePool.Instance.Fetch(typeof(Card)));
+    public static pb::MessageParser<Card> Parser { get { return _parser; } }
+
+    private global::ETModel.Weight cardWeight_ = 0;
+    public global::ETModel.Weight CardWeight {
+      get { return cardWeight_; }
+      set {
+        cardWeight_ = value;
+      }
+    }
+
+    private global::ETModel.Suits cardSuits_ = 0;
+    public global::ETModel.Suits CardSuits {
+      get { return cardSuits_; }
+      set {
+        cardSuits_ = value;
+      }
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CardWeight != 0) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) CardWeight);
+      }
+      if (CardSuits != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) CardSuits);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (CardWeight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CardWeight);
+      }
+      if (CardSuits != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CardSuits);
+      }
+      return size;
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            cardWeight_ = (global::ETModel.Weight) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            cardSuits_ = (global::ETModel.Suits) input.ReadEnum();
             break;
           }
         }

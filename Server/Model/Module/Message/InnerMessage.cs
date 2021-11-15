@@ -94,6 +94,8 @@ namespace ETModel
 	{
 		public int RpcId { get; set; }
 
+		public bool NeedCache { get; set; }
+
 		public string CollectionName { get; set; }
 
 		public ComponentWithId Component { get; set; }
@@ -115,6 +117,8 @@ namespace ETModel
 	public partial class DBSaveBatchRequest: IRequest
 	{
 		public int RpcId { get; set; }
+
+		public bool NeedCache { get; set; }
 
 		public string CollectionName { get; set; }
 
@@ -142,6 +146,8 @@ namespace ETModel
 
 		public string CollectionName { get; set; }
 
+		public bool NeedCache { get; set; }
+
 	}
 
 	[Message(InnerOpcode.DBQueryResponse)]
@@ -165,6 +171,8 @@ namespace ETModel
 		public string CollectionName { get; set; }
 
 		public List<long> IdList = new List<long>();
+
+		public bool NeedCache { get; set; }
 
 	}
 
@@ -375,6 +383,246 @@ namespace ETModel
 		public int RpcId { get; set; }
 
 		public long ActorId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2R_PlayerOnline_Req)]
+	public partial class G2R_PlayerOnline_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long UserID { get; set; }
+
+		public int GateAppID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.R2G_PlayerOnline_Ack)]
+	public partial class R2G_PlayerOnline_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2R_PlayerOffline_Req)]
+	public partial class G2R_PlayerOffline_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.R2G_PlayerOffline_Ack)]
+	public partial class R2G_PlayerOffline_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.R2G_GetLoginKey_Req)]
+	public partial class R2G_GetLoginKey_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2R_GetLoginKey_Ack)]
+	public partial class G2R_GetLoginKey_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+		public long Key { get; set; }
+
+	}
+
+	[Message(InnerOpcode.R2G_PlayerKickOut_Req)]
+	public partial class R2G_PlayerKickOut_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2R_PlayerKickOut_Ack)]
+	public partial class G2R_PlayerKickOut_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2M_PlayerEnterMatch_Req)]
+	public partial class G2M_PlayerEnterMatch_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long PlayerID { get; set; }
+
+		public long UserID { get; set; }
+
+		public long SessionID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.M2G_PlayerEnterMatch_Ack)]
+	public partial class M2G_PlayerEnterMatch_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.G2M_PlayerExitMatch_Req)]
+	public partial class G2M_PlayerExitMatch_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.M2G_PlayerExitMatch_Ack)]
+	public partial class M2G_PlayerExitMatch_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.Actor_PlayerExitRoom_Req)]
+	public partial class Actor_PlayerExitRoom_Req: IActorRequest
+	{
+		public int RpcId { get; set; }
+
+		public long ActorId { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.Actor_PlayerExitRoom_Ack)]
+	public partial class Actor_PlayerExitRoom_Ack: IActorResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.Actor_MatchSucess_Ntt)]
+	public partial class Actor_MatchSucess_Ntt: IActorMessage
+	{
+		public int RpcId { get; set; }
+
+		public long ActorId { get; set; }
+
+		public long GamerID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.MH2MP_CreateRoom_Req)]
+	public partial class MH2MP_CreateRoom_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+	}
+
+	[Message(InnerOpcode.MP2MH_CreateRoom_Ack)]
+	public partial class MP2MH_CreateRoom_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+		public long RoomID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.Actor_PlayerEnterRoom_Req)]
+	public partial class Actor_PlayerEnterRoom_Req: IActorRequest
+	{
+		public int RpcId { get; set; }
+
+		public long ActorId { get; set; }
+
+		public long PlayerID { get; set; }
+
+		public long UserID { get; set; }
+
+		public long SessionID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.Actor_PlayerEnterRoom_Ack)]
+	public partial class Actor_PlayerEnterRoom_Ack: IActorResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+		public long GamerID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.MP2MH_PlayerExitRoom_Req)]
+	public partial class MP2MH_PlayerExitRoom_Req: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public long RoomID { get; set; }
+
+		public long UserID { get; set; }
+
+	}
+
+	[Message(InnerOpcode.MH2MP_PlayerExitRoom_Ack)]
+	public partial class MH2MP_PlayerExitRoom_Ack: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+	}
+
+	[Message(InnerOpcode.MP2MH_SyncRoomState_Ntt)]
+	public partial class MP2MH_SyncRoomState_Ntt: IMessage
+	{
+		public long RoomID { get; set; }
+
+		public RoomState State { get; set; }
 
 	}
 
