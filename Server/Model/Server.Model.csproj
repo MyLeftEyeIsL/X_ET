@@ -59,6 +59,9 @@
     <Compile Include="..\..\Unity\Assets\Model\Component\Config\StartConfig.cs">
       <Link>Component\Config\StartConfig.cs</Link>
     </Compile>
+    <Compile Include="..\..\Unity\Assets\Model\Landlords\Scripts\Message\LandlordsOuterErrorCode.cs" Link="Landlords\Message\LandlordsOuterErrorCode.cs" />
+    <Compile Include="..\..\Unity\Assets\Model\Landlords\Scripts\Object\Card.cs" Link="Landlords\Object\Card.cs" />
+    <Compile Include="..\..\Unity\Assets\Model\Landlords\Scripts\Object\Type.cs" Link="Landlords\Object\Type.cs" />
     <Compile Include="..\..\Unity\Assets\Model\Module\ActorLocation\IActorLocationMessage.cs">
       <Link>Module\ActorLocation\IActorLocationMessage.cs</Link>
     </Compile>
@@ -340,6 +343,7 @@
     <Folder Include="Base\RecyclableMemoryStream\" />
     <Folder Include="Base\Base\" />
     <Folder Include="Component\Config\" />
+    <Folder Include="Landlords\Message\" />
     <Folder Include="Module\Message\Network\KCP\" />
     <Folder Include="Module\Message\Network\TCP\" />
     <Folder Include="Module\Message\MessagePool\" />

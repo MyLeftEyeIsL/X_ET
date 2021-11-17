@@ -134,6 +134,24 @@ namespace App
 
 						Game.Scene.AddComponent<ConsoleComponent>();
 						// Game.Scene.AddComponent<HttpComponent>();
+
+						/*------------------------斗地主服务端自定义全局组件-start----------------------*/
+						//GateGlobalComponent
+						Game.Scene.AddComponent<UserComponent>();
+						Game.Scene.AddComponent<LandlordsGateSessionKeyComponent>();
+
+						//MapGlobalComponent
+						Game.Scene.AddComponent<RoomComponent>();
+
+						//MatchGlobalComponent
+						Game.Scene.AddComponent<AllotMapComponent>();
+						Game.Scene.AddComponent<MatchComponent>();
+						Game.Scene.AddComponent<MatcherComponent>();
+						Game.Scene.AddComponent<MatchRoomComponent>();
+
+						//RealmGlobalComponent
+						Game.Scene.AddComponent<OnlineComponent>();
+						/*------------------------斗地主服务端自定义全局组件-end------------------------*/
 						break;
 					case AppType.Benchmark:
 						Game.Scene.AddComponent<CoroutineLockComponent>();
