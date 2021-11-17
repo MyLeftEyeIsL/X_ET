@@ -14,6 +14,7 @@ namespace ETModel
 		DB = 1 << 4,
 		Location = 1 << 5,
 		Map = 1 << 6,
+		Match = 1 << 7,
 
 		BenchmarkWebsocketServer = 1 << 26,
 		BenchmarkWebsocketClient = 1 << 27,
