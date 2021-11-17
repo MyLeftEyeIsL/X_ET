@@ -31,6 +31,8 @@ namespace ETModel
 
 		public StartConfig LocationConfig { get; private set; }
 
+		public StartConfig MatchConfig { get; private set; }
+
 		public List<StartConfig> MapConfigs { get; private set; }
 
 		public List<StartConfig> GateConfigs { get; private set; }
