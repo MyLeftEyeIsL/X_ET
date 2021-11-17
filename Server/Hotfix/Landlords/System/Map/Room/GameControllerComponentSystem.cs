@@ -354,11 +354,11 @@ namespace ETHotfix
             DBProxyComponent dbProxy = Game.Scene.GetComponent<DBProxyComponent>();
 
             //结算用户余额
-            UserInfo userInfo = await dbProxy.Query<UserInfo>(gamer.UserID, false);
+            UserInfo userInfo = await dbProxy.Query<UserInfo>(gamer.UserID);
             userInfo.Money = userInfo.Money + sorce < 0 ? 0 : userInfo.Money + sorce;
 
             //更新用户信息
-            await dbProxy.Save(userInfo, false);
+            await dbProxy.Save(userInfo);
 
             return userInfo.Money;
         }

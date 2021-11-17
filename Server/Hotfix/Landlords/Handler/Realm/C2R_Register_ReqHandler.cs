@@ -35,7 +35,7 @@ namespace ETHotfix
 
             //保存到数据库
             await dbProxy.Save(newAccount);
-            await dbProxy.Save(newUser, false);
+            await dbProxy.Save(newUser);
 
             reply();
         }

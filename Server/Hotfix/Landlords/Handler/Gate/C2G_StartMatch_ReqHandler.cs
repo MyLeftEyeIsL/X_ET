@@ -21,7 +21,7 @@ namespace ETHotfix
 
             //验证玩家是否符合进入房间要求,默认为100底分局
             RoomConfig roomConfig = RoomHelper.GetConfig(RoomLevel.Lv100);
-            UserInfo userInfo = await Game.Scene.GetComponent<DBProxyComponent>().Query<UserInfo>(user.UserID, false);
+            UserInfo userInfo = await Game.Scene.GetComponent<DBProxyComponent>().Query<UserInfo>(user.UserID);
             if (userInfo.Money < roomConfig.MinThreshold)
             {
                 response.Error = ErrorCode.ERR_UserMoneyLessError;

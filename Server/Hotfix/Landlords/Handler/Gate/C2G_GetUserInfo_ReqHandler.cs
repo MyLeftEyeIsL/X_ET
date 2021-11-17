@@ -18,7 +18,7 @@ namespace ETHotfix
 
             //查询用户信息
             DBProxyComponent dbProxyComponent = Game.Scene.GetComponent<DBProxyComponent>();
-            UserInfo userInfo = await dbProxyComponent.Query<UserInfo>(request.UserID, false);
+            UserInfo userInfo = await dbProxyComponent.Query<UserInfo>(request.UserID);
 
             response.NickName = userInfo.NickName;
             response.Wins = userInfo.Wins;
