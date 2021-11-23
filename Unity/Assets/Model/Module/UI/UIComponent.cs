@@ -9,7 +9,7 @@ namespace ETModel
 	{
 		public override void Awake(UIComponent self)
 		{
-			self.Camera = Component.Global.transform.Find("UICamera").gameObject;
+			self.Camera = Component.Global.transform.Find("Camera/UICamera").gameObject;
 		}
 	}
 	
