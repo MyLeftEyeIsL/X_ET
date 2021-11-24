@@ -26,7 +26,7 @@ namespace ETModel
 		ClientM = 1 << 31,
 
 		// 7
-		AllServer = Manager | Realm | Gate | Http | DB | Location | Map | BenchmarkWebsocketServer
+		AllServer = Manager | Realm | Gate | Http | DB | Location | Map | BenchmarkWebsocketServer | Match
 	}
 
 	public static class AppTypeHelper

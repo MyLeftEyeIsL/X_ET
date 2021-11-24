@@ -79,6 +79,11 @@ namespace ETModel
 						this.DBConfig = startConfig;
 					}
 
+					if(startConfig.AppType.Is(AppType.Match))
+                    {
+						this.MatchConfig = startConfig;
+                    }
+
 					if (startConfig.AppType.Is(AppType.Map))
 					{
 						this.MapConfigs.Add(startConfig);
