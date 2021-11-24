@@ -12,8 +12,6 @@ namespace ETHotfix
 		{
 			try
 			{
-				Debug.LogError("--LandlordsLobbyFactory--Create--");
-
 				ResourcesComponent resourcesComponent = ETModel.Game.Scene.GetComponent<ResourcesComponent>();
 				resourcesComponent.LoadBundle(UIType.LandlordsLobby.StringToAB());
 				GameObject bundleGameObject = (GameObject)resourcesComponent.GetAsset(UIType.LandlordsLobby.StringToAB(), UIType.LandlordsLobby);

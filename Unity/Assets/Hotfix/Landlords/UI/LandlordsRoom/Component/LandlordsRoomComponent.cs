@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace ETHotfix
 {
+    [ObjectSystem]
     public class LandlordsRoomComponentSystem : AwakeSystem<LandlordsRoomComponent>
     {
         public override void Awake(LandlordsRoomComponent self)
