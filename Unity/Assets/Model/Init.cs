@@ -28,6 +28,10 @@ namespace ETModel
 				Game.Scene.AddComponent<UnitComponent>();
 				Game.Scene.AddComponent<UIComponent>();
 
+				//斗地主客户端自定义全局组件
+				//用于保存玩家本地数据
+				Game.Scene.AddComponent<ClientComponent>();
+
 				// 下载ab包
 				await BundleHelper.DownloadBundle();
 
