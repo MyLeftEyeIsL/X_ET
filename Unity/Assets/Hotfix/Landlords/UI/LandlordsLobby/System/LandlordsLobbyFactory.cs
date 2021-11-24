@@ -21,7 +21,7 @@ namespace ETHotfix
 
 				UI ui = ComponentFactory.Create<UI, string, GameObject>(UIType.LandlordsLobby, gameObject, false);
 
-				ui.AddComponent<LandlordsLoginComponent>();
+				ui.AddComponent<LandlordsLobbyComponent>();
 				return ui;
 			}
 			catch (Exception e)
