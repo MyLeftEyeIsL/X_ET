@@ -142,7 +142,6 @@ namespace ETHotfix
                 ClientComponent.Instance.LocalPlayer = user;
 
                 //跳转到大厅界面
-                Debug.LogError("-跳转到大厅界面-");
                 Game.EventSystem.Run(EventIdType.LandlordsExitLogin);
                 Game.EventSystem.Run(EventIdType.LandlordsEnterLobby);
             }
